@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/">HOME</a>
+    <section class="contact">
+
+        <!-- search -->
+        <form action="/all" method="post">
+            <input type="hidden" name="filterActive" value="true">
+            <input type="text" name="search" placeholder="Enter name or email" >
+            <button type="submit">Search</button>
+        </form>
+
+        <% foundItemsHTML.forEach(function(contact) {   %>
+            <p>Contact Name:  <%= contact.name %>  </p>
+            <p>Phone   <%= contact.phone  %>  </p>
+            <p>Email  <%= contact.email   %> </p>
+            <!-- <p>ID  <%= contact.id   %> </p> -->
+
+            <!-- For Delete -->
+            <form action="/all" method="post">
+                <input type="hidden" name="contactDeleteID" value="<%=contact.id%>">
+                <button type="submit">Delete</button>
+            </form>
+
+            <!-- For Edit -->
+            <form action="/" method = "post">
+                <input type="hidden" name="isEdit" value="true">
+                <!-- <input type="text" name="editName" value="<%=contact.name%>"> -->
+                <input type="hidden" name="editID" value="<%=contact.id%>">
+                <button type="submit">Edit</button>
+            </form>
+
+            <hr>
+        <% });  %>
+        
+    </section>
+
+
+</body>
+</html>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
